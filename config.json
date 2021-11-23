@@ -1,1 +1,7 @@
-{"seperator":9,"key_column":"name","incremental_column":"numReads","is_arithmetic":true,"files":["barcode1report.tsv","barcode2report.tsv","barcode3report.tsv"]}
+{	
+	"seperator":9,
+	"key_column":"name",
+	"incremental_column":"numReads",
+	"is_arithmetic":true,
+	"files":["barcode1report.tsv","barcode2report.tsv","barcode3report.tsv"]
+}

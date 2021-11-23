@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// Parser represents a text-seperated value (TSV) file parser.
 type Parser struct {
 	reader *bufio.Reader
 
@@ -17,6 +18,7 @@ type Parser struct {
 	Columns map[string]int
 }
 
+// NewParser creates a new TSV parser.
 func NewParser(seperator byte, file string) *Parser {
 	f, err := os.Open(file)
 	if err != nil {
@@ -41,6 +43,8 @@ func NewParser(seperator byte, file string) *Parser {
 	return parser
 }
 
+// Row receives a key column and a list of columns to add within the row struct and retrieves those values for the next line within the file.
+// If the column does not exist within this file, we return an error.
 func (p *Parser) Row(key string, columns []string) (Row, error) {
 	line, _, err := p.reader.ReadLine()
 	if err != nil {
@@ -49,7 +53,7 @@ func (p *Parser) Row(key string, columns []string) (Row, error) {
 
 	l := strings.Split(string(line), string(p.Seperator))
 	index := 0
-	row := Row{Key: l[p.Columns[key] - 1], Value: make(map[string]interface{})}
+	row := Row{Key: l[p.Columns[key] - 1], Value: make(map[string]string)}
 	
 	for _, column := range columns {
 		index = p.Columns[column]

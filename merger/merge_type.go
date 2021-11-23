@@ -1,6 +1,6 @@
 package merger
 
-// MergerType represents a proper
+// MergerType gives functionality to create different types of merging for values received from rows.
 type MergerType interface {
 	// Output receives a file path and writes the values within itself to the file.
 	Output(string) error

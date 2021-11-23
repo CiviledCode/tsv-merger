@@ -6,10 +6,15 @@ import (
 	"strconv"
 )
 
-// IntegerMerger ...
+// IntegerMerger uses integer arithmetic instructions to increment values.
+// This implements the Merger interface.
 type IntegerMerger struct {
+	// Config allows us to access key column, seperators, and incremental columns.
 	Config TSVConfig
-	
+
+	// TODO: Make this a double map so we can store multiple columns per key or hash the column and key together and store within the map.
+
+	// Content is the content we are merging.
 	Content map[string]int
 }
 

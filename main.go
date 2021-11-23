@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -13,7 +14,7 @@ import (
 func main() {
 	// The first argument should be the config file name.
 	args := os.Args
-
+	
 	configContents, _ := ioutil.ReadFile(args[1])
 	config := merger.TSVConfig{Seperator: '	'}
 	err := json.Unmarshal(configContents, &config)
@@ -35,7 +36,7 @@ func main() {
 		for {
 			createdRow, err := parser.Row(config.KeyColumn, []string{config.IncrementalColumn})
 
-			if err != nil {
+			if err != nil && err != bufio.ErrAdvanceTooFar {
 				fmt.Println(err)
 				break
 			}
@@ -43,8 +44,11 @@ func main() {
 			m.Put(createdRow.Key, createdRow.Value[config.IncrementalColumn])
 		}
 	}
-
-	err = m.Output("output.tsv")
+	if len(args) < 3 {
+		err = m.Output("output.tsv")
+	} else {
+		err = m.Output(args[2])
+	}
 
 	if err != nil {
 		panic(err)
