@@ -10,10 +10,11 @@ In it's current state it's fairly limited, but more features are planned for the
 
 - [x] Parsing TSV files.
 - [x] Merging TSV files with addition.
-- [ ] Merging TSV files with appending.
-- [ ] Merging multiple columns from configuration.
-- [ ] Individual merging operations for columns (Addition, Appending, Subtraction, Multiplication, Division, Floating point numbers, Constants). These should be represented as individual characters.
-- [ ] Formula interpretation for merging. Some sort of basic arithmetic parsing library.
+- [x] Merging multiple columns from configuration.
+- [x] Individual merging operations support with mapping to sequences.
+- [ ] Arithmetic merging operations (Addition, Subtraction, Multiplication, Division).
+- [ ] String merging operations (Appending).
+- [ ] Cloning columns (Merging files by bringing columns together).
 
 ## How to use it
 1. Download the latest config.json and prebuilt binary from the releases tab.
