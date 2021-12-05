@@ -1,5 +1,5 @@
 # tsv-merger
-A quick and simple Text Seperated Value (TSV) file merger and parser written in Go. 
+A simple and configurable Text Seperated Value (TSV) file merger written purely in Go. This project utilizes no dependencies, so parsing and conversion abilities are included.
 
 ## Disclaimer
 **This code is experimental and prone to bugs/performance issues in it's current state. I am NOT responsible for any possible issues or damages that come from
