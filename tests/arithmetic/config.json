@@ -1,0 +1,7 @@
+{
+	"seperator":",",
+	"output_seperator":",",
+	"key_column":"name",
+	"column_operations":{"dob": "_", "money": "+"},
+	"files":["data1.csv","data2.csv", "data3.tsv"]
+}
